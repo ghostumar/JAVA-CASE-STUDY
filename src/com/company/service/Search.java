@@ -4,7 +4,6 @@ import com.company.Book;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /** Search class to
@@ -25,7 +24,7 @@ public class Search {
      * search books by
      * their title name
      */
-    public void searchbytitle(String title,Map<Long,Book>shelves){
+    public void searchbyTitle(String title, Map<Long,Book>shelves){
         shelves.forEach((key,value)->{
             if(value.getTitle().toLowerCase().contains(title.toLowerCase())){
                 searchResult.put(key,value);
@@ -37,7 +36,7 @@ public class Search {
     /** search books by
      * their author name
      */
-    public void searchbyauthor(String author,Map<Long,Book>shelves) {
+    public void searchbyAuthor(String author, Map<Long,Book>shelves) {
         shelves.forEach((key, value) -> {
             if (value.getAuthor().contains(author)) {
                 searchResult.put(key, value);
@@ -64,7 +63,7 @@ public class Search {
      * from title.
      */
 
-    public void searchbykeyword(String keyword, Map<Long, Book> shelves) {
+    public void searchbyKeyword(String keyword, Map<Long, Book> shelves) {
         shelves.forEach((key, value) -> {
             if (value.getKeywords().contains(keyword)) {
                 searchResult.put(key, value);
