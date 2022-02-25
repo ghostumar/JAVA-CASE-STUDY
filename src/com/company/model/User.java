@@ -7,8 +7,8 @@ package com.company.model;
  */
 
 public class User {
-    public String userName;
-    public String userEmail;
+    private String userName;
+    private String userEmail;
     public User(String userName,String userEmail){
         this.userName=userName;
         this.userEmail=userEmail;

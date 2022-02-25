@@ -12,7 +12,6 @@ import java.util.logging.Logger;
  */
 
 public class Search {
-    private static Logger logger= Logger.getLogger(Search.class.getName());
     private Map<Long, Book>searchResult;
     private String keyword;
 
@@ -38,7 +37,7 @@ public class Search {
      */
     public void searchbyAuthor(String author, Map<Long,Book>shelves) {
         shelves.forEach((key, value) -> {
-            if (value.getAuthor().contains(author)) {
+            if (value.getAuthors().contains(author)) {
                 searchResult.put(key, value);
             }
         });

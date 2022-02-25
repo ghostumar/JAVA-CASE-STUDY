@@ -1,6 +1,5 @@
 package com.company;
 
-import com.company.model.User;
 import java.util.*;
 
 
@@ -15,7 +14,7 @@ public class Book {
 
     private long isbn;
     private String title;
-    private Set<String>author;
+    private Set<String> authors;
     private Set<String>keywords;
     private String status;
 
@@ -24,13 +23,13 @@ public class Book {
      * allow user to input instance variable
      */
 
-    public Book(long isbn, String title,Set<String> author){
+    public Book(long isbn, String title,Set<String> authors){
         this.isbn=isbn;
         this.title=title;
-        this.author=new HashSet<>();
-        for (String name: author) {
-            if(!name.equals(null) && name.matches("^[a-z A-Z]*$")) {
-                this.author.add(name);
+        this.authors =new HashSet<>();
+        for (String name: authors) {
+            if(name!=null && name.matches("^[a-z A-Z]*$")) {
+                this.authors.add(name);
             }
         }
         this.keywords=new HashSet<>();
@@ -49,11 +48,11 @@ public class Book {
 
         return title;
     }
-    public Set<String> getAuthor(){
-        return author;
+    public Set<String> getAuthors(){
+        return authors;
     }
     public  void addkeyword(String keyword){
-        if(!keyword.equals(null) && keyword.matches("^[a-z A-Z 0-9]*$")) {
+        if(keyword !=null && keyword.matches("^[a-z A-Z 0-9]*$")) {
             this.keywords.add(keyword);
         }
 

@@ -12,7 +12,6 @@ import java.util.logging.Logger;
  */
 
 public class Borrower {
-    private Logger logger=Logger.getLogger(Borrower.class.getName());
     private String name;
     private String email;
     private Map<Long, Book> rentedBooks;
@@ -46,13 +45,14 @@ public class Borrower {
                 '}';
     }
 
-    public void returnBook(String title){
-        for(Map.Entry<Long,Book>entry:rentedBooks.entrySet()){
-            if(entry.getValue().getTitle().equalsIgnoreCase(title)){
-                entry.getValue().returnStatus();
-                rentedBooks.remove(entry.getKey());
+    public void returnBook(String title) {
+        rentedBooks.forEach((key,value)->{
+            if (value.getTitle().equalsIgnoreCase(title)){
+                value.returnStatus();
+                rentedBooks.remove(key);
             }
-        }
+        });
+
     }
     public Map<Long,Book>getRentedBooks(){
         return rentedBooks;
